@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
-// const { MongoClient, ObjectId } = require('mongodb');
+// const { MongoClient, ObjectId } = require("mongodb");
 //environment variables
+// require("dotenv").config();
 require("dotenv").config();
 const url = process.env.MONGO_URL;
 
 mongoose.connect(url);
 
 const db = mongoose.connection;
+// mongoose.set("bufferCommands", false);
 
 // import model
 const Customer = require("./models/customer");
@@ -34,7 +36,7 @@ const findCustomer = (name) => {
 
 // update customer
 const updateCustomer = (_id, customer) => {
-  Customer.update(_id , customer).then((customer) => {
+  Customer.findOneAndUpdate({ _id }, customer).then((customer) => {
     console.info("Customer Updated");
     db.close();
   });
@@ -42,7 +44,7 @@ const updateCustomer = (_id, customer) => {
 
 // remove customer
 const removeCustomer = (_id) => {
-  Customer.remove({ _id }).then((customer) => {
+  Customer.findOneAndDelete({ _id }).then((customer) => {
     console.info("Customer Removed");
     db.close();
   });
