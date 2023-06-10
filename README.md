@@ -25,25 +25,25 @@ $ npm link
 
 List Customers (list or l)
 ```sh
-$ client-cli list
+$ customer-cli list
 ```
 
 Find Customers (find or f)
 ```sh
-$ client-cli find [NAME]
+$ customer-cli find [NAME]
 ```
 
 Add Customer (add or a)
 ```sh
-$ client-cli add
+$ customer-cli add
 ```
 
 Update Customer (update or u)
 ```sh
-$ client-cli update [_ID]
+$ customer-cli update [_ID]
 ```
 
 Remove Customer (remove or r)
 ```sh
-$ client-cli remove [_ID]
+$ customer-cli remove [_ID]
 ```
